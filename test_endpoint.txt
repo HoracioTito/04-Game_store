@@ -1,0 +1,139 @@
+**********
+*  User  *
+**********
+a- createUser - POST . OK
+ http://localhost:4000/api/v1/users/signup
+{
+    "username" : "User Gamer 1",
+    "email" : "user_game_1@gmail.com",
+    "password" : "user_1_game"
+}
+Return:
+{
+    "status": "success",
+    "data": {
+        "newUser": {
+            "role": "normal",
+            "status": "active",
+            "id": 1,
+            "name": "User Gamer 1",
+            "email": "user_game_1@gmail.com",
+            "updatedAt": "2022-09-22T21:57:53.072Z",
+            "createdAt": "2022-09-22T21:57:53.072Z"
+        }
+    }
+}
+
+b- Login - POST. OK
+ http://localhost:4000/api/v1/users/login
+ {
+    "email" : "user_game_1@gmail.com",
+    "password" : "user_1_game"
+}
+Return:
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "User Gamer 1",
+            "email": "user_game_1@gmail.com",
+            "role": "normal",
+            "status": "active",
+            "createdAt": "2022-09-22T21:57:53.072Z",
+            "updatedAt": "2022-09-22T21:57:53.072Z"
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYzODgzOTcwLCJleHAiOjE2NjY0NzU5NzB9.NIyTxViVCjJ6nXrrCchCMHtYsZ72HyMZKKiFEXXIKeo"
+    }
+}
+
+
+c- updateUser - PATCH . OK
+ http://localhost:4000/api/v1/users/1
+{
+    "email" : "user_game_1@gmail.com",
+    "password" : "user_1_game"
+}
+
+d- getAllUsers - GET . OK
+ http://localhost:4000/api/v1/users/
+
+
+ E- deleteUser - DELETE . OK
+  http://localhost:4000/api/v1/users/1
+
+
+  ************
+  *  Games   *
+  ************  
+
+  a- getAllGames . GET. OK
+  http://localhost:4000/api/v1/games
+
+
+  b- createGame - POST . OK
+    http://localhost:4000/api/v1/games
+{
+    "title" : "Doom",
+    "genre" : "action",
+    "consoleId" : 1
+}
+Return: 
+{
+    "status": "success",
+    "data": {
+        "newGame": {
+            "status": "active",
+            "id": 4,
+            "title": "Doom",
+            "genre": "action",
+            "updatedAt": "2022-09-22T22:40:02.576Z",
+            "createdAt": "2022-09-22T22:40:02.576Z"
+        }
+    }
+}
+
+d- createReview . POST . OK
+ http://localhost:4000/api/v1/reviews/222
+{
+    "comment" : "comentario 1"
+}
+
+************
+* Consoles *
+************
+
+a- getAllConsoles - GET. OK
+http://localhost:4000/api/v1/consoles
+
+
+b-createConsoles - POST. OK
+http://localhost:4000/api/v1/consoles
+{
+    "name" : "Nintendo PRO",
+    "company" :  "Nintendo"
+}
+Return:
+{
+    "status": "success",
+    "data": {
+        "newConsole": {
+            "status": "active",
+            "id": 1,
+            "name": "Nintendo PRO",
+            "company": "Nintendo",
+            "updatedAt": "2022-09-22T22:22:41.966Z",
+            "createdAt": "2022-09-22T22:22:41.966Z"
+        }
+    }
+}
+
+C- updateConsole - PATCH . OK
+http://localhost:4000/api/v1/consoles/222
+{
+    "name" : "Nintenod flash"
+}
+
+d- deleteConsole - DELETE . OK
+http://localhost:4000/api/v1/consoles/22
+
